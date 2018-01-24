@@ -10,7 +10,6 @@
 
 PYCPP_USING_NAMESPACE
 
-
 // TESTS
 // -----
 
