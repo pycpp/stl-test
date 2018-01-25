@@ -2,10 +2,10 @@
 //  :license: MIT, see LICENSE.md for more details.
 /*
  *  \addtogroup Tests
- *  \brief Type-deducing equal_to unittests.
+ *  \brief Type-deducing logical_or unittests.
  */
 
-#include <pycpp/stl/functional/equal_to.h>
+#include <pycpp/stl/functional/logical_or.h>
 #include <gtest/gtest.h>
 
 PYCPP_USING_NAMESPACE
@@ -13,13 +13,13 @@ PYCPP_USING_NAMESPACE
 // TESTS
 // -----
 
-TEST(functional, equal_to)
+TEST(functional, logical_or)
 {
-    int x = 1;
-    int y = 2;
-    int z = 2;
-    equal_to<> pred;
+    bool x = false;
+    bool y = false;
+    bool z = true;
+    logical_or<> pred;
     EXPECT_FALSE(pred(x, y));
-    EXPECT_FALSE(pred(x, z));
+    EXPECT_TRUE(pred(x, z));
     EXPECT_TRUE(pred(y, z));
 }

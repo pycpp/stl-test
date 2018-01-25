@@ -2,10 +2,10 @@
 //  :license: MIT, see LICENSE.md for more details.
 /*
  *  \addtogroup Tests
- *  \brief Type-deducing not_equal_to unittests.
+ *  \brief Type-deducing logical_and unittests.
  */
 
-#include <pycpp/stl/functional/not_equal_to.h>
+#include <pycpp/stl/functional/logical_and.h>
 #include <gtest/gtest.h>
 
 PYCPP_USING_NAMESPACE
@@ -13,13 +13,13 @@ PYCPP_USING_NAMESPACE
 // TESTS
 // -----
 
-TEST(functional, not_equal_to)
+TEST(functional, logical_and)
 {
-    int x = 1;
-    int y = 2;
-    int z = 2;
-    not_equal_to<> pred;
-    EXPECT_TRUE(pred(x, y));
+    bool x = true;
+    bool y = false;
+    bool z = true;
+    logical_and<> pred;
+    EXPECT_FALSE(pred(x, y));
     EXPECT_TRUE(pred(x, z));
     EXPECT_FALSE(pred(y, z));
 }
