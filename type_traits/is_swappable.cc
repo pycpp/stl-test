@@ -51,6 +51,21 @@ struct throwing
 struct non_throwing
 {};
 
+
+struct throwing_member: throwing
+{
+    using throwing::throwing;
+    void swap(throwing_member&) {}
+};
+
+
+struct non_throwing_member: non_throwing
+{
+    using non_throwing::non_throwing;
+    void swap(non_throwing_member&) noexcept {}
+};
+
+
 struct non_swappable
 {
     non_swappable() = delete;
@@ -132,6 +147,35 @@ TEST(is_swappable, is_nothrow_swappable)
 }
 
 
+TEST(is_swappable, is_member_swappable)
+{
+    static_assert(!is_member_swappable<int>::value, "");
+    static_assert(is_member_swappable<std::string>::value, "");
+    static_assert(!is_member_swappable<throwing>::value, "");
+    static_assert(!is_member_swappable<non_throwing>::value, "");
+    static_assert(is_member_swappable<throwing_member>::value, "");
+    static_assert(is_member_swappable<non_throwing_member>::value, "");
+
+#ifdef HAVE_CPP14
+    static_assert(is_member_swappable_v<std::string>, "");
+#endif
+}
+
+
+TEST(is_swappable, is_nothrow_member_swappable)
+{
+    static_assert(!is_nothrow_member_swappable<int>::value, "");
+    static_assert(!is_nothrow_member_swappable<throwing>::value, "");
+    static_assert(!is_nothrow_member_swappable<non_throwing>::value, "");
+    static_assert(!is_nothrow_member_swappable<throwing_member>::value, "");
+    static_assert(is_nothrow_member_swappable<non_throwing_member>::value, "");
+
+#ifdef HAVE_CPP14
+    static_assert(is_nothrow_member_swappable_v<non_throwing_member>, "");
+#endif
+}
+
+
 TEST(is_swappable, enable_swappable_with)
 {
     using t1 = typename enable_swappable_with<int&, int&>::type;
@@ -160,6 +204,22 @@ TEST(is_swappable, enable_nothrow_swappable)
 {
     using t1 = typename enable_nothrow_swappable<int>::type;
     using t2 = enable_nothrow_swappable_t<int>;
+    static_assert(std::is_same<t1, t2>::value, "");
+}
+
+
+TEST(is_swappable, enable_member_swappable)
+{
+    using t1 = typename enable_member_swappable<throwing_member>::type;
+    using t2 = enable_member_swappable_t<throwing_member>;
+    static_assert(std::is_same<t1, t2>::value, "");
+}
+
+
+TEST(is_swappable, enable_nothrow_member_swappable)
+{
+    using t1 = typename enable_nothrow_member_swappable<non_throwing_member>::type;
+    using t2 = enable_nothrow_member_swappable_t<non_throwing_member>;
     static_assert(std::is_same<t1, t2>::value, "");
 }
 

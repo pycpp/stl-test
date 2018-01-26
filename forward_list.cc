@@ -29,14 +29,33 @@ TEST(forward_list_facet, element_access)
 
 TEST(forward_list_facet, iterators)
 {
-    // TODO:
+    forward_list<int> l;
+    auto& f = l.facet();
+
+    EXPECT_EQ(f.begin(), f.end());
+    l = {3};
+    EXPECT_NE(f.begin(), f.end());
+    EXPECT_EQ(*f.begin(), 3);
 }
 
 
 TEST(forward_list_facet, capacity)
 {
-    // TODO:
+    forward_list<int> l1;
+    forward_list<int> l2 = {1};
+    auto& f1 = l1.facet();
+    auto& f2 = l2.facet();
+
+    EXPECT_TRUE(f1.empty());
+    EXPECT_FALSE(f2.empty());
+    EXPECT_GE(f1.max_size(), 0);
 }
+
+// TODO: operations
+// splice after
+// merge
+// sort
+// reverse
 
 // FORWARD LIST
 
@@ -49,11 +68,25 @@ TEST(forward_list, element_access)
 
 TEST(forward_list, iterators)
 {
-    // TODO:
+    forward_list<int> l;
+    EXPECT_EQ(l.begin(), l.end());
+    l = {3};
+    EXPECT_NE(l.begin(), l.end());
+    EXPECT_EQ(*l.begin(), 3);
 }
 
 
 TEST(forward_list, capacity)
 {
-    // TODO:
+    forward_list<int> l1;
+    forward_list<int> l2 = {1};
+    EXPECT_TRUE(l1.empty());
+    EXPECT_FALSE(l2.empty());
+    EXPECT_GE(l1.max_size(), 0);
 }
+
+// TODO: operations
+// splice after
+// merge
+// sort
+// reverse

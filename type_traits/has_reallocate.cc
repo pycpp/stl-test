@@ -26,7 +26,7 @@ struct reallocate_allocator
     using pointer = value_type*;
     using size_type = unsigned;
 
-    pointer reallocate(pointer, size_type, size_type);
+    static pointer reallocate(pointer, size_type, size_type, size_type, size_type = 0, size_type = 0);
 };
 
 template <typename T>
@@ -36,7 +36,7 @@ struct incompatible_allocator
     using pointer = value_type*;
     using size_type = unsigned;
 
-    pointer reallocate(pointer, size_type);
+    static pointer reallocate(pointer, size_type);
 };
 
 // TESTS
