@@ -15,6 +15,7 @@ PYCPP_USING_NAMESPACE
 
 TEST(deque, deque)
 {
+    using deque_type = deque<int, allocator<int>>;
 //    deque<int> x;
     // TODO: need to fix...
 //    EXPECT_TRUE(x.empty());

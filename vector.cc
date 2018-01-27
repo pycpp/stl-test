@@ -15,7 +15,8 @@ PYCPP_USING_NAMESPACE
 
 TEST(vector, vector)
 {
-    vector<int> x;
+    using vector_type = vector<int, allocator<int>>;
+//    vector<int> x;
     // TODO: need to fix...
 //    EXPECT_TRUE(x.empty());
 }
