@@ -19,7 +19,7 @@ TEST(utility, in_place)
     EXPECT_TRUE(sizeof(in_place) >= 0);
     EXPECT_TRUE(sizeof(in_place_type_t<int>) >= 0);
     EXPECT_TRUE(sizeof(in_place_index_t<0>) >= 0);
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     EXPECT_TRUE(sizeof(in_place_type<int>) >= 0);
     EXPECT_TRUE(sizeof(in_place_index<0>) >= 0);
 #endif

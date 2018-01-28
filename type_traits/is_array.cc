@@ -26,7 +26,7 @@ TEST(is_array, is_array)
     static_assert(is_array<const volatile bounded_array>::value, "");
     static_assert(!is_array<bounded_array&>::value, "");
 
-#if HAVE_CPP14
+#if PYCPP_CPP14
     static_assert(is_array_v<unbounded_array>, "");
 #endif
 }
@@ -45,7 +45,7 @@ TEST(is_array, is_bounded_array)
     static_assert(is_bounded_array<const volatile bounded_array>::value, "");
     static_assert(!is_bounded_array<bounded_array&>::value, "");
 
-#if HAVE_CPP14
+#if PYCPP_CPP14
     static_assert(is_bounded_array_v<bounded_array>, "");
 #endif
 }
@@ -64,7 +64,7 @@ TEST(is_array, is_unbounded_array)
     static_assert(is_unbounded_array<const volatile unbounded_array>::value, "");
     static_assert(!is_unbounded_array<unbounded_array&>::value, "");
 
-#if HAVE_CPP14
+#if PYCPP_CPP14
     static_assert(is_unbounded_array_v<unbounded_array>, "");
 #endif
 }

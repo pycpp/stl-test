@@ -28,7 +28,7 @@ TEST(is_invocable, is_invocable)
     static_assert(is_invocable<int()>::value, "");
     static_assert(is_invocable<decltype(throwing), int>::value, "");
     static_assert(!is_invocable<decltype(throwing), void*>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_invocable_v<int()>, "");
     static_assert(is_invocable_v<decltype(throwing), int>, "");
     static_assert(!is_invocable_v<decltype(throwing), void*>, "");
@@ -42,7 +42,7 @@ TEST(is_invocable, is_invocable_r)
     static_assert(!is_invocable_r<void*, int()>::value, "");
     static_assert(is_invocable_r<void, decltype(throwing), int>::value, "");
     static_assert(!is_invocable_r<int, decltype(throwing), int>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_invocable_r_v<int, int()>, "");
     static_assert(!is_invocable_r_v<void*, int()>, "");
     static_assert(is_invocable_r_v<void, decltype(throwing), int>, "");
@@ -53,7 +53,7 @@ TEST(is_invocable, is_invocable_r)
 
 TEST(is_invocable, is_nothrow_invocable)
 {
-#ifdef HAVE_CPP17
+#ifdef PYCPP_CPP17
     static_assert(!is_nothrow_invocable<decltype(throwing), int>::value, "");
     static_assert(is_nothrow_invocable<decltype(non_throwing), int>::value, "");
     static_assert(!is_nothrow_invocable<decltype(throwing), void*>::value, "");
@@ -69,7 +69,7 @@ TEST(is_invocable, is_nothrow_invocable)
 
 TEST(is_invocable, is_nothrow_invocable_r)
 {
-#ifdef HAVE_CPP17
+#ifdef PYCPP_CPP17
     static_assert(!is_nothrow_invocable_r<void, decltype(throwing), int>::value, "");
     static_assert(is_nothrow_invocable_r<void, decltype(non_throwing), int>::value, "");
     static_assert(!is_nothrow_invocable_r<int, decltype(non_throwing), int>::value, "");

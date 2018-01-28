@@ -27,7 +27,7 @@ TEST(is_trivial, is_trivially_copyable)
 {
     static_assert(is_trivially_copyable<int>::value, "");
     static_assert(!is_trivially_copyable<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_copyable_v<int>, "");
 #endif
 }
@@ -37,7 +37,7 @@ TEST(is_trivial, is_trivially_constructible)
 {
     static_assert(is_trivially_constructible<int>::value, "");
     static_assert(!is_trivially_constructible<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_constructible_v<int>, "");
 #endif
 }
@@ -47,7 +47,7 @@ TEST(is_trivial, is_trivially_default_constructible)
 {
     static_assert(is_trivially_default_constructible<int>::value, "");
     static_assert(!is_trivially_default_constructible<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_default_constructible_v<int>, "");
 #endif
 }
@@ -57,7 +57,7 @@ TEST(is_trivial, is_trivially_copy_constructible)
 {
     static_assert(is_trivially_copy_constructible<int>::value, "");
     static_assert(!is_trivially_copy_constructible<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_copy_constructible_v<int>, "");
 #endif
 }
@@ -67,7 +67,7 @@ TEST(is_trivial, is_trivially_move_constructible)
 {
     static_assert(is_trivially_move_constructible<int>::value, "");
     static_assert(!is_trivially_move_constructible<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_move_constructible_v<int>, "");
 #endif
 }
@@ -77,7 +77,7 @@ TEST(is_trivial, is_trivially_assignable)
 {
     static_assert(is_trivially_assignable<int&, int>::value, "");
     static_assert(!is_trivially_assignable<virtual_struct&, virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_assignable_v<int&, int>, "");
 #endif
 }
@@ -87,7 +87,7 @@ TEST(is_trivial, is_trivially_copy_assignable)
 {
     static_assert(is_trivially_copy_assignable<int>::value, "");
     static_assert(!is_trivially_copy_assignable<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_copy_assignable_v<int>, "");
 #endif
 }
@@ -97,7 +97,7 @@ TEST(is_trivial, is_trivially_move_assignable)
 {
     static_assert(is_trivially_move_assignable<int>::value, "");
     static_assert(!is_trivially_move_assignable<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_trivially_move_assignable_v<int>, "");
 #endif
 }

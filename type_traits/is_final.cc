@@ -30,15 +30,15 @@ TEST(is_final, is_final)
 {
     static_assert(!is_final<int>::value, "");
     static_assert(!is_final<base>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(!is_final_v<int>, "");
     static_assert(!is_final_v<base>, "");
 #endif
 
 #ifdef PYCPP_IS_FINAL
     static_assert(is_final<derived>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_final_v<derived>, "");
-#endif  // HAVE_CPP14
+#endif  // PYCPP_CPP14
 #endif  // PYCPP_IS_FINAL
 }

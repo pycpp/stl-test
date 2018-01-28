@@ -90,8 +90,6 @@ add_tests(
     memory/make_unique.cc
     memory/pointer_cast.cc
     memory/pointer_traits.cc
-    # TODO: define unittests
-#    #memory/polymorphic_allocator.cc
     memory/relocate.cc
     memory/shared_ptr.cc
     memory/swap_allocator.cc
@@ -99,6 +97,11 @@ add_tests(
     memory/to_raw_pointer.cc
     memory/uninitialized.cc
     memory/uses_allocator.cc
+    memory_resource.cc
+    memory_resource/new_delete_resource.cc
+    memory_resource/null_memory_resource.cc
+    memory_resource/polymorphic_allocator.cc
+    memory_resource/resource_adaptor.cc
     mutex.cc
     mutex/dummy_mutex.cc
     new.cc

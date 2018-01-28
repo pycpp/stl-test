@@ -23,7 +23,7 @@ TEST(is_safe_overload, is_safe_overload)
     static_assert(!is_safe_overload<true, int, const int&, std::allocator<int>>::value, "");
     static_assert(is_safe_overload<true, int, float>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(!is_safe_overload_v<false, int, int>, "");
     static_assert(!is_safe_overload_v<false, int, int, std::allocator<int>>, "");
     static_assert(is_safe_overload_v<false, int, const int&, std::allocator<int>>, "");

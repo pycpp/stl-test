@@ -43,7 +43,7 @@ TEST(memory, has_construct)
     using a2 = without_construct<int>;
     static_assert(has_construct<a1, int>::value, "");
     static_assert(!has_construct<a2, int>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(has_construct_v<a1, int>, "");
 #endif
 }
@@ -55,7 +55,7 @@ TEST(memory, has_memcpy_construct)
     using a2 = without_construct<int>;
     static_assert(has_memcpy_construct<a1, int>::value, "");
     static_assert(has_memcpy_construct<a2, int>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(has_memcpy_construct_v<a1, int>, "");
 #endif
 }

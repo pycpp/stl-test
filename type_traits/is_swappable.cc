@@ -101,7 +101,7 @@ TEST(is_swappable, is_swappable_with)
     // different types
     static_assert(!is_swappable_with<int, std::string>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_swappable_v<int&, int&>, "");
 #endif
 }
@@ -113,7 +113,7 @@ TEST(is_swappable, is_nothrow_swappable_with)
     static_assert(is_nothrow_swappable_with<non_throwing&, non_throwing&>::value, "");
     static_assert(!is_nothrow_swappable_with<throwing&, non_throwing&>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_nothrow_swappable_with_v<non_throwing&, non_throwing&>, "");
 #endif
 }
@@ -127,7 +127,7 @@ TEST(is_swappable, is_swappable)
     static_assert(is_swappable<non_throwing>::value, "");
     static_assert(!is_swappable<non_swappable>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_swappable_v<int>, "");
 #endif
 }
@@ -141,7 +141,7 @@ TEST(is_swappable, is_nothrow_swappable)
     static_assert(is_nothrow_swappable<non_throwing>::value, "");
     static_assert(!is_nothrow_swappable<non_swappable>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_nothrow_swappable_v<int>, "");
 #endif
 }
@@ -156,7 +156,7 @@ TEST(is_swappable, is_member_swappable)
     static_assert(is_member_swappable<throwing_member>::value, "");
     static_assert(is_member_swappable<non_throwing_member>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_member_swappable_v<std::string>, "");
 #endif
 }
@@ -170,7 +170,7 @@ TEST(is_swappable, is_nothrow_member_swappable)
     static_assert(!is_nothrow_member_swappable<throwing_member>::value, "");
     static_assert(is_nothrow_member_swappable<non_throwing_member>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_nothrow_member_swappable_v<non_throwing_member>, "");
 #endif
 }

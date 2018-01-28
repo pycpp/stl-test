@@ -22,7 +22,7 @@ TEST(logical, type_map_and)
     static_assert(!type_map_and<identity_t, std::true_type, std::false_type>::value, "");
     static_assert(!type_map_and<identity_t, std::false_type, std::false_type>::value, "");
 
-#if HAVE_CPP14
+#if PYCPP_CPP14
     static_assert(type_map_and_v<identity_t, std::true_type>, "");
 #endif
 }
@@ -36,7 +36,7 @@ TEST(logical, type_map_or)
     static_assert(type_map_or<identity_t, std::true_type, std::false_type>::value, "");
     static_assert(!type_map_or<identity_t, std::false_type, std::false_type>::value, "");
 
-#if HAVE_CPP14
+#if PYCPP_CPP14
     static_assert(type_map_or_v<identity_t, std::true_type>, "");
 #endif
 }
@@ -47,7 +47,7 @@ TEST(logical, type_not)
     static_assert(type_not<identity_t, std::false_type>::value, "");
     static_assert(!type_not<identity_t, std::true_type>::value, "");
 
-#if HAVE_CPP14
+#if PYCPP_CPP14
     static_assert(type_not_v<identity_t, std::false_type>, "");
 #endif
 }

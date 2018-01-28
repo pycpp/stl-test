@@ -24,7 +24,7 @@ TEST(is_duration, is_duration)
     static_assert(is_duration<const duration_type&>::value, "");
     static_assert(is_duration<const volatile duration_type&>::value, "");
 
-#if HAVE_CPP14
+#if PYCPP_CPP14
     static_assert(is_duration_v<duration_type>, "");
 #endif
 }

@@ -27,7 +27,7 @@ TEST(is_complete, is_complete)
     static_assert(is_complete<int[5]>::value, "");
     static_assert(is_complete<pod_struct>::value, "");
     static_assert(!is_complete<incomplete>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_complete_v<int>, "");
     static_assert(is_complete_v<int[5]>, "");
     static_assert(is_complete_v<pod_struct>, "");

@@ -6,7 +6,7 @@
  */
 
 #include <pycpp/preprocessor/compiler.h>
-#ifdef HAVE_CPP17
+#ifdef PYCPP_CPP17
 #   include <pycpp/stl/execution.h>
 #endif
 #include <gtest/gtest.h>

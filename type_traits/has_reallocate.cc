@@ -51,7 +51,7 @@ TEST(has_reallocate, has_reallocate)
     static_assert(!has_reallocate<a1>::value, "");
     static_assert(has_reallocate<a2>::value, "");
     static_assert(!has_reallocate<a3>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(!has_reallocate_v<a1>, "");
     static_assert(has_reallocate_v<a2>, "");
     static_assert(!has_reallocate_v<a3>, "");

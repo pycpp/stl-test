@@ -31,7 +31,7 @@ TEST(type_traits, has_is_always_equal)
     static_assert(has_is_always_equal<yes_test>::value, "");
     static_assert(!has_is_always_equal<no_test>::value, "");
 
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(has_is_always_equal_v<yes_test>, "");
 #endif
 }

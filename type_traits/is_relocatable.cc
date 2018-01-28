@@ -37,7 +37,7 @@ TEST(is_relocatable, is_relocatable)
     static_assert(is_relocatable<empty>::value, "");
     static_assert(is_relocatable<pod_struct>::value, "");
     static_assert(!is_relocatable<virtual_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_relocatable_v<int>, "");
     static_assert(is_relocatable_v<int[5]>, "");
     static_assert(is_relocatable_v<empty>, "");

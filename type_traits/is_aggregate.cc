@@ -28,7 +28,7 @@ TEST(is_aggregate, is_aggregate)
 {
     static_assert(!is_aggregate<int>::value, "");
     static_assert(!is_aggregate<virtual_class>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(!is_aggregate_v<int>, "");
     static_assert(!is_aggregate_v<virtual_class>, "");
 #endif
@@ -36,9 +36,9 @@ TEST(is_aggregate, is_aggregate)
 #ifdef PYCPP_IS_AGGREGATE
     static_assert(is_aggregate<int[5]>::value, "");
     static_assert(is_aggregate<pod_struct>::value, "");
-#ifdef HAVE_CPP14
+#ifdef PYCPP_CPP14
     static_assert(is_aggregate_v<int[5]>, "");
     static_assert(is_aggregate_v<pod_struct>, "");
-#endif  // HAVE_CPP14
+#endif  // PYCPP_CPP14
 #endif  // PYCPP_IS_AGGREGATE
 }
