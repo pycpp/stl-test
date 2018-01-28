@@ -5,8 +5,14 @@
  *  \brief <execution> unittests.
  */
 
-#include <pycpp/preprocessor/compiler.h>
-#ifdef PYCPP_CPP17
-#   include <pycpp/stl/execution.h>
+#include <pycpp/preprocessor/compiler_traits.h>
+// TODO(ahuszagh): Wish list.
+// None of the STL implements have implemented the parallel execution
+// algorithms.
+// Change when they become available.
+#if defined(HAVE_CPP17)
+#   if PYCPP_HAS_INCLUDE(<execution>)
+#       include <pycpp/stl/execution.h>
+#   endif
 #endif
 #include <gtest/gtest.h>

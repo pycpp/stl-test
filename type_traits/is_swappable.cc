@@ -102,7 +102,7 @@ TEST(is_swappable, is_swappable_with)
     static_assert(!is_swappable_with<int, std::string>::value, "");
 
 #ifdef PYCPP_CPP14
-    static_assert(is_swappable_v<int&, int&>, "");
+    static_assert(is_swappable_with_v<int&, int&>, "");
 #endif
 }
 
