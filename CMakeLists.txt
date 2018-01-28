@@ -86,10 +86,11 @@ add_tests(
     memory/checked_delete.cc
     memory/destroy.cc
     memory/has_construct.cc
-    # TODO: define unittests
+    memory/intrusive_ptr.cc
     memory/make_unique.cc
     memory/pointer_cast.cc
     memory/pointer_traits.cc
+    # TODO: define unittests
 #    #memory/polymorphic_allocator.cc
     memory/relocate.cc
     memory/shared_ptr.cc
@@ -128,6 +129,7 @@ add_tests(
     type_traits/any_overload.cc
     type_traits/disable_if.cc
     type_traits/endian.cc
+    type_traits/has_is_always_equal.cc
     type_traits/has_member_function.cc
     type_traits/has_member_type.cc
     type_traits/has_member_variable.cc

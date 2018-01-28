@@ -15,7 +15,21 @@ PYCPP_USING_NAMESPACE
 
 TEST(cstdlib, aligned_alloc)
 {
-    void* p = aligned_alloc(alignof(int), sizeof(int) * 10);
+    constexpr size_t alignment = alignof(int);
+    void* p = aligned_alloc(alignment, sizeof(int) * 10);
     ASSERT_NE(p, nullptr);
+    aligned_free(p);
+}
+
+
+TEST(cstdlib, aligned_realloc)
+{
+    // check initial with null
+    constexpr size_t alignment = alignof(int);
+    constexpr size_t old_size = sizeof(int) * 10;
+    constexpr size_t new_size = sizeof(int) * 20;
+    void* p = aligned_realloc(nullptr, alignment, 0, old_size);
+    ASSERT_NE(p, nullptr);
+    p = aligned_realloc(p, alignment, old_size, new_size);
     aligned_free(p);
 }

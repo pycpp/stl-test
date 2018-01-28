@@ -18,10 +18,10 @@ TEST(allocator_destructor, allocator_destructor)
 {
     using allocator_type = allocator<int>;
     using traits = allocator_traits<allocator_type>;
-    using deleter = allocator_destructor<allocator_type>;
+    using deleter = allocator_destructor<allocator_type, 1>;
 
     allocator_type alloc;
-    std::unique_ptr<int, deleter> h(traits::allocate(alloc, 1), deleter(alloc, 1));
+    std::unique_ptr<int, deleter> h(traits::allocate(alloc, 1), deleter(alloc));
     traits::construct(alloc, h.get(), 5);
     EXPECT_EQ(*h, 5);
 }
