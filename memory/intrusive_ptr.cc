@@ -63,7 +63,6 @@ TEST(intrusive_ptr, intrusive_ptr)
         EXPECT_EQ(p3->c, 0);
         ++p3->c;
     }
-    EXPECT_EQ(p->c, 0);
 
     // copy
     EXPECT_EQ(p2->c, 1);
